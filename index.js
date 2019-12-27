@@ -8,6 +8,8 @@ for (var i = 0; i < NumOfDrums; i++) {
       var buttonclicked = this.innerHTML;
 
       drums(buttonclicked);
+
+      buttonAnimation(buttonclicked);
     });
 }
 
@@ -58,4 +60,14 @@ function drums(key) {
 
 document.addEventListener("keypress", function(event) {
   drums(event.key);
+
+  buttonAnimation(buttonclicked);
 });
+
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function() {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
